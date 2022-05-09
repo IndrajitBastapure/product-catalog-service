@@ -1,0 +1,154 @@
+2022-05-09 15:17:57.361 [INFO] [restartedMain]
+				[com.springboot.productcatalogservice.ProductCatalogServiceApplication:55] Starting ProductCatalogServiceApplication using Java 11.0.12 on DESKTOP-87UHEDE with PID 20104 (E:\Indrajit Professional\Java\Spring\Projects\product-catalog-service\target\classes started by admin in E:\Indrajit Professional\Java\Spring\Projects\product-catalog-service)
+2022-05-09 15:17:57.364 [INFO] [restartedMain]
+				[com.springboot.productcatalogservice.ProductCatalogServiceApplication:640] No active profile set, falling back to 1 default profile: "default"
+2022-05-09 15:17:58.192 [INFO] [restartedMain]
+				[org.apache.catalina.core.StandardService:173] Starting service [Tomcat]
+2022-05-09 15:17:58.192 [INFO] [restartedMain]
+				[org.apache.catalina.core.StandardEngine:173] Starting Servlet engine: [Apache Tomcat/9.0.62]
+2022-05-09 15:17:58.239 [INFO] [restartedMain]
+				[org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]:173] Initializing Spring embedded WebApplicationContext
+2022-05-09 15:17:58.275 [INFO] [restartedMain]
+				[org.hibernate.jpa.internal.util.LogHelper:31] HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-05-09 15:17:58.286 [INFO] [restartedMain]
+				[com.zaxxer.hikari.HikariDataSource:110] HikariPool-7 - Starting...
+2022-05-09 15:17:58.292 [INFO] [restartedMain]
+				[com.zaxxer.hikari.HikariDataSource:123] HikariPool-7 - Start completed.
+2022-05-09 15:17:58.294 [INFO] [restartedMain]
+				[org.hibernate.dialect.Dialect:175] HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2022-05-09 15:17:58.399 [DEBUG] [restartedMain]
+				[org.hibernate.SQL:144] create table products (id bigint not null, manufacturer varchar(255), name varchar(255), quantity integer, primary key (id))
+2022-05-09 15:17:58.407 [DEBUG] [restartedMain]
+				[org.hibernate.SQL:144] create sequence hibernate_sequence start with 1 increment by 1
+2022-05-09 15:17:58.408 [INFO] [restartedMain]
+				[org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator:52] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-05-09 15:17:58.723 [INFO] [restartedMain]
+				[springfox.documentation.spring.web.PropertySourcedRequestMappingHandlerMapping:69] Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2022-05-09 15:17:58.857 [INFO] [restartedMain]
+				[springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper:147] Context refreshed
+2022-05-09 15:17:58.866 [INFO] [restartedMain]
+				[springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper:150] Found 1 custom documentation plugin(s)
+2022-05-09 15:17:58.889 [INFO] [restartedMain]
+				[springfox.documentation.spring.web.scanners.ApiListingReferenceScanner:41] Scanning for api listing references
+2022-05-09 15:17:59.085 [INFO] [restartedMain]
+				[com.springboot.productcatalogservice.ProductCatalogServiceApplication:61] Started ProductCatalogServiceApplication in 1.959 seconds (JVM running for 1136.194)
+2022-05-09 15:18:14.368 [INFO] [Thread-28]
+				[com.zaxxer.hikari.HikariDataSource:350] HikariPool-7 - Shutdown initiated...
+2022-05-09 15:18:14.380 [INFO] [Thread-28]
+				[com.zaxxer.hikari.HikariDataSource:352] HikariPool-7 - Shutdown completed.
+2022-05-09 15:18:14.576 [INFO] [restartedMain]
+				[com.springboot.productcatalogservice.ProductCatalogServiceApplication:23] Starting ProductCatalogService application
+2022-05-09 15:18:14.662 [INFO] [restartedMain]
+				[com.springboot.productcatalogservice.ProductCatalogServiceApplication:55] Starting ProductCatalogServiceApplication using Java 11.0.12 on DESKTOP-87UHEDE with PID 20104 (E:\Indrajit Professional\Java\Spring\Projects\product-catalog-service\target\classes started by admin in E:\Indrajit Professional\Java\Spring\Projects\product-catalog-service)
+2022-05-09 15:18:14.663 [INFO] [restartedMain]
+				[com.springboot.productcatalogservice.ProductCatalogServiceApplication:640] No active profile set, falling back to 1 default profile: "default"
+2022-05-09 15:18:15.244 [INFO] [restartedMain]
+				[org.apache.catalina.core.StandardService:173] Starting service [Tomcat]
+2022-05-09 15:18:15.245 [INFO] [restartedMain]
+				[org.apache.catalina.core.StandardEngine:173] Starting Servlet engine: [Apache Tomcat/9.0.62]
+2022-05-09 15:18:15.276 [INFO] [restartedMain]
+				[org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]:173] Initializing Spring embedded WebApplicationContext
+2022-05-09 15:18:15.309 [INFO] [restartedMain]
+				[org.hibernate.jpa.internal.util.LogHelper:31] HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-05-09 15:18:15.315 [INFO] [restartedMain]
+				[com.zaxxer.hikari.HikariDataSource:110] HikariPool-8 - Starting...
+2022-05-09 15:18:15.317 [INFO] [restartedMain]
+				[com.zaxxer.hikari.HikariDataSource:123] HikariPool-8 - Start completed.
+2022-05-09 15:18:15.318 [INFO] [restartedMain]
+				[org.hibernate.dialect.Dialect:175] HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2022-05-09 15:18:15.370 [DEBUG] [restartedMain]
+				[org.hibernate.SQL:144] create table products (id bigint not null, manufacturer varchar(255), name varchar(255), quantity integer, primary key (id))
+2022-05-09 15:18:15.372 [DEBUG] [restartedMain]
+				[org.hibernate.SQL:144] create sequence hibernate_sequence start with 1 increment by 1
+2022-05-09 15:18:15.373 [INFO] [restartedMain]
+				[org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator:52] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-05-09 15:18:15.528 [INFO] [restartedMain]
+				[springfox.documentation.spring.web.PropertySourcedRequestMappingHandlerMapping:69] Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2022-05-09 15:18:15.617 [INFO] [restartedMain]
+				[springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper:147] Context refreshed
+2022-05-09 15:18:15.618 [INFO] [restartedMain]
+				[springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper:150] Found 1 custom documentation plugin(s)
+2022-05-09 15:18:15.625 [INFO] [restartedMain]
+				[springfox.documentation.spring.web.scanners.ApiListingReferenceScanner:41] Scanning for api listing references
+2022-05-09 15:18:15.672 [INFO] [restartedMain]
+				[com.springboot.productcatalogservice.ProductCatalogServiceApplication:61] Started ProductCatalogServiceApplication in 1.089 seconds (JVM running for 1152.781)
+2022-05-09 15:19:58.880 [INFO] [Thread-34]
+				[com.zaxxer.hikari.HikariDataSource:350] HikariPool-8 - Shutdown initiated...
+2022-05-09 15:19:58.886 [INFO] [Thread-34]
+				[com.zaxxer.hikari.HikariDataSource:352] HikariPool-8 - Shutdown completed.
+2022-05-09 15:19:58.980 [INFO] [restartedMain]
+				[com.springboot.productcatalogservice.ProductCatalogServiceApplication:23] Starting ProductCatalogService application
+2022-05-09 15:19:59.185 [INFO] [restartedMain]
+				[com.springboot.productcatalogservice.ProductCatalogServiceApplication:55] Starting ProductCatalogServiceApplication using Java 11.0.12 on DESKTOP-87UHEDE with PID 20104 (E:\Indrajit Professional\Java\Spring\Projects\product-catalog-service\target\classes started by admin in E:\Indrajit Professional\Java\Spring\Projects\product-catalog-service)
+2022-05-09 15:19:59.186 [INFO] [restartedMain]
+				[com.springboot.productcatalogservice.ProductCatalogServiceApplication:640] No active profile set, falling back to 1 default profile: "default"
+2022-05-09 15:19:59.734 [INFO] [restartedMain]
+				[org.apache.catalina.core.StandardService:173] Starting service [Tomcat]
+2022-05-09 15:19:59.735 [INFO] [restartedMain]
+				[org.apache.catalina.core.StandardEngine:173] Starting Servlet engine: [Apache Tomcat/9.0.62]
+2022-05-09 15:19:59.758 [INFO] [restartedMain]
+				[org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]:173] Initializing Spring embedded WebApplicationContext
+2022-05-09 15:19:59.793 [INFO] [restartedMain]
+				[org.hibernate.jpa.internal.util.LogHelper:31] HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-05-09 15:19:59.797 [INFO] [restartedMain]
+				[com.zaxxer.hikari.HikariDataSource:110] HikariPool-9 - Starting...
+2022-05-09 15:19:59.799 [INFO] [restartedMain]
+				[com.zaxxer.hikari.HikariDataSource:123] HikariPool-9 - Start completed.
+2022-05-09 15:19:59.800 [INFO] [restartedMain]
+				[org.hibernate.dialect.Dialect:175] HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2022-05-09 15:19:59.833 [DEBUG] [restartedMain]
+				[org.hibernate.SQL:144] create table products (id bigint not null, manufacturer varchar(255), name varchar(255), quantity integer, primary key (id))
+2022-05-09 15:19:59.834 [DEBUG] [restartedMain]
+				[org.hibernate.SQL:144] create sequence hibernate_sequence start with 1 increment by 1
+2022-05-09 15:19:59.835 [INFO] [restartedMain]
+				[org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator:52] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-05-09 15:19:59.953 [INFO] [restartedMain]
+				[springfox.documentation.spring.web.PropertySourcedRequestMappingHandlerMapping:69] Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2022-05-09 15:20:00.026 [INFO] [restartedMain]
+				[springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper:147] Context refreshed
+2022-05-09 15:20:00.027 [INFO] [restartedMain]
+				[springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper:150] Found 1 custom documentation plugin(s)
+2022-05-09 15:20:00.037 [INFO] [restartedMain]
+				[springfox.documentation.spring.web.scanners.ApiListingReferenceScanner:41] Scanning for api listing references
+2022-05-09 15:20:00.082 [INFO] [restartedMain]
+				[com.springboot.productcatalogservice.ProductCatalogServiceApplication:61] Started ProductCatalogServiceApplication in 1.095 seconds (JVM running for 1257.19)
+2022-05-09 15:21:27.785 [INFO] [Thread-38]
+				[com.zaxxer.hikari.HikariDataSource:350] HikariPool-9 - Shutdown initiated...
+2022-05-09 15:21:27.796 [INFO] [Thread-38]
+				[com.zaxxer.hikari.HikariDataSource:352] HikariPool-9 - Shutdown completed.
+2022-05-09 15:21:28.005 [INFO] [restartedMain]
+				[com.springboot.productcatalogservice.ProductCatalogServiceApplication:23] Starting ProductCatalogService application
+2022-05-09 15:21:28.161 [INFO] [restartedMain]
+				[com.springboot.productcatalogservice.ProductCatalogServiceApplication:55] Starting ProductCatalogServiceApplication using Java 11.0.12 on DESKTOP-87UHEDE with PID 20104 (E:\Indrajit Professional\Java\Spring\Projects\product-catalog-service\target\classes started by admin in E:\Indrajit Professional\Java\Spring\Projects\product-catalog-service)
+2022-05-09 15:21:28.165 [INFO] [restartedMain]
+				[com.springboot.productcatalogservice.ProductCatalogServiceApplication:646] The following 1 profile is active: "dev"
+2022-05-09 15:21:28.815 [INFO] [restartedMain]
+				[org.apache.catalina.core.StandardService:173] Starting service [Tomcat]
+2022-05-09 15:21:28.816 [INFO] [restartedMain]
+				[org.apache.catalina.core.StandardEngine:173] Starting Servlet engine: [Apache Tomcat/9.0.62]
+2022-05-09 15:21:28.841 [INFO] [restartedMain]
+				[org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]:173] Initializing Spring embedded WebApplicationContext
+2022-05-09 15:21:28.876 [INFO] [restartedMain]
+				[org.hibernate.jpa.internal.util.LogHelper:31] HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-05-09 15:21:28.881 [INFO] [restartedMain]
+				[com.zaxxer.hikari.HikariDataSource:110] HikariPool-10 - Starting...
+2022-05-09 15:21:28.884 [INFO] [restartedMain]
+				[com.zaxxer.hikari.HikariDataSource:123] HikariPool-10 - Start completed.
+2022-05-09 15:21:28.884 [INFO] [restartedMain]
+				[org.hibernate.dialect.Dialect:175] HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2022-05-09 15:21:28.931 [DEBUG] [restartedMain]
+				[org.hibernate.SQL:144] create table products (id bigint not null, manufacturer varchar(255), name varchar(255), quantity integer, primary key (id))
+2022-05-09 15:21:28.957 [DEBUG] [restartedMain]
+				[org.hibernate.SQL:144] create sequence hibernate_sequence start with 1 increment by 1
+2022-05-09 15:21:28.959 [INFO] [restartedMain]
+				[org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator:52] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-05-09 15:21:29.119 [INFO] [restartedMain]
+				[springfox.documentation.spring.web.PropertySourcedRequestMappingHandlerMapping:69] Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2022-05-09 15:21:29.209 [INFO] [restartedMain]
+				[springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper:147] Context refreshed
+2022-05-09 15:21:29.210 [INFO] [restartedMain]
+				[springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper:150] Found 1 custom documentation plugin(s)
+2022-05-09 15:21:29.218 [INFO] [restartedMain]
+				[springfox.documentation.spring.web.scanners.ApiListingReferenceScanner:41] Scanning for api listing references
+2022-05-09 15:21:29.257 [INFO] [restartedMain]
+				[com.springboot.productcatalogservice.ProductCatalogServiceApplication:61] Started ProductCatalogServiceApplication in 1.239 seconds (JVM running for 1346.366)
