@@ -23,31 +23,30 @@ import com.springboot.productcatalogservice.service.ProductService;
 @RestController
 @RequestMapping("/api")
 public class ProductController {
-	
+
 	@Autowired
 	private ProductService productService;
-	
-	//Handler Methods
-	
+
+	// Handler Methods
+
 	@GetMapping("/products")
-	public ResponseEntity<List<Product>> getAllProducts() {	
-		
+	public ResponseEntity<List<Product>> getAllProducts() {
+
 		try {
-			
 			List<Product> productList = new ArrayList<>();
-				productService.getAllProducts().forEach(productList::add);
-			
+			productService.getAllProducts().forEach(productList::add);
+
 			if (productList.isEmpty()) {
 				return new ResponseEntity<>(HttpStatus.NO_CONTENT);
 			}
 			return new ResponseEntity<>(productList, HttpStatus.OK);
-			
-		}catch(Exception e) {
+
+		} catch (Exception e) {
 			return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
 		}
-		
-	 }
-	
+
+	}
+
 	@GetMapping("/products/{id}")
 	public ResponseEntity<Product> getProductById(@PathVariable("id") long id) {
 		Optional<Product> productData = productService.findById(id);
@@ -58,17 +57,18 @@ public class ProductController {
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 		}
 	}
-	
+
 	@PostMapping("/products")
 	public ResponseEntity<Product> createProduct(@RequestBody Product product) {
 		try {
-			Product productCreated = productService.saveProduct(new Product(product.getName(), product.getQuantity(), product.getManufacturer()));
+			Product productCreated = productService
+					.saveProduct(new Product(product.getName(), product.getQuantity(), product.getManufacturer()));
 			return new ResponseEntity<>(productCreated, HttpStatus.CREATED);
 		} catch (Exception e) {
 			return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 	}
-	
+
 	@PutMapping("/products/{id}")
 	public ResponseEntity<Product> updateProduct(@PathVariable("id") long id, @RequestBody Product product) {
 		Optional<Product> productData = productService.findById(id);
@@ -83,7 +83,7 @@ public class ProductController {
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 		}
 	}
-	
+
 	@DeleteMapping("/products/{id}")
 	public ResponseEntity<HttpStatus> deleteProduct(@PathVariable("id") long id) {
 		try {
@@ -93,7 +93,7 @@ public class ProductController {
 			return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 	}
-	
+
 	@DeleteMapping("/products")
 	public ResponseEntity<HttpStatus> deleteAllProducts() {
 		try {
@@ -104,7 +104,7 @@ public class ProductController {
 		}
 
 	}
-	
+
 	@GetMapping("/products/name")
 	public ResponseEntity<List<Product>> findProductByName(@RequestParam String name) {
 		try {
@@ -118,7 +118,7 @@ public class ProductController {
 			return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 	}
-	
+
 	@GetMapping("/products/manufacturer")
 	public ResponseEntity<List<Product>> findProductByManufacturer(@RequestParam String manufacturer) {
 		try {
