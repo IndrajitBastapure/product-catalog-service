@@ -3,7 +3,9 @@ package com.springboot.productcatalogservice.controller;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -17,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.springboot.productcatalogservice.dto.ProductDTO;
 import com.springboot.productcatalogservice.entity.Product;
 import com.springboot.productcatalogservice.service.ProductService;
 
@@ -25,63 +28,67 @@ import com.springboot.productcatalogservice.service.ProductService;
 public class ProductController {
 
 	@Autowired
+	private ModelMapper modelMapper;
+
+	@Autowired
 	private ProductService productService;
 
 	// Handler Methods
 
 	@GetMapping("/products")
-	public ResponseEntity<List<Product>> getAllProducts() {
+	public ResponseEntity<List<ProductDTO>> getAllProducts() {
 
-		try {
-			List<Product> productList = new ArrayList<>();
-			productService.getAllProducts().forEach(productList::add);
+		List<ProductDTO> productList = new ArrayList<>();
 
-			if (productList.isEmpty()) {
-				return new ResponseEntity<>(HttpStatus.NO_CONTENT);
-			}
-			return new ResponseEntity<>(productList, HttpStatus.OK);
+		productList = productService.getAllProducts().stream()
+				.map(product -> modelMapper.map(product, ProductDTO.class)).collect(Collectors.toList());
 
-		} catch (Exception e) {
-			return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+		if (productList.isEmpty()) {
+			return new ResponseEntity<>(HttpStatus.NO_CONTENT);
 		}
+		return new ResponseEntity<>(productList, HttpStatus.OK);
 
 	}
 
 	@GetMapping("/products/{id}")
-	public ResponseEntity<Product> getProductById(@PathVariable("id") long id) {
-		Optional<Product> productData = productService.findById(id);
+	public ResponseEntity<ProductDTO> getProductById(@PathVariable("id") long id) {
+		Product product = productService.findById(id);
+		ProductDTO productData = modelMapper.map(product, ProductDTO.class);
 
-		if (productData.isPresent()) {
-			return new ResponseEntity<>(productData.get(), HttpStatus.OK);
-		} else {
-			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-		}
+		return new ResponseEntity<>(productData, HttpStatus.OK);
+
 	}
 
 	@PostMapping("/products")
-	public ResponseEntity<Product> createProduct(@RequestBody Product product) {
+	public ResponseEntity<ProductDTO> createProduct(@RequestBody ProductDTO product) {
 		try {
-			Product productCreated = productService
-					.saveProduct(new Product(product.getName(), product.getQuantity(), product.getManufacturer()));
-			return new ResponseEntity<>(productCreated, HttpStatus.CREATED);
+			Product productEntity = modelMapper.map(product, Product.class);
+			Product productCreated = productService.saveProduct(
+					new Product(productEntity.getName(), productEntity.getQuantity(), productEntity.getManufacturer()));
+			ProductDTO productResponse = modelMapper.map(productCreated, ProductDTO.class);
+			
+			return new ResponseEntity<>(productResponse, HttpStatus.CREATED);
 		} catch (Exception e) {
 			return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 	}
 
 	@PutMapping("/products/{id}")
-	public ResponseEntity<Product> updateProduct(@PathVariable("id") long id, @RequestBody Product product) {
-		Optional<Product> productData = productService.findById(id);
+	public ResponseEntity<ProductDTO> updateProduct(@PathVariable("id") long id, @RequestBody ProductDTO productDto) {
 
-		if (productData.isPresent()) {
-			Product productToBeUpdated = productData.get();
-			productToBeUpdated.setName(product.getName());
-			productToBeUpdated.setQuantity(product.getQuantity());
-			productToBeUpdated.setManufacturer(product.getManufacturer());
-			return new ResponseEntity<>(productService.saveProduct(productToBeUpdated), HttpStatus.OK);
-		} else {
-			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-		}
+		Product productRequest = modelMapper.map(productDto, Product.class);
+		Product productEntity = productService.findById(id);
+
+		productEntity.setName(productRequest.getName());
+		productEntity.setQuantity(productRequest.getQuantity());
+		productEntity.setManufacturer(productRequest.getManufacturer());
+		
+		Product productSaved = productService.saveProduct(productEntity);
+		
+		ProductDTO productResponse = modelMapper.map(productSaved, ProductDTO.class);
+		
+		return new ResponseEntity<>(productResponse, HttpStatus.OK);
+
 	}
 
 	@DeleteMapping("/products/{id}")
@@ -106,9 +113,10 @@ public class ProductController {
 	}
 
 	@GetMapping("/products/name")
-	public ResponseEntity<List<Product>> findProductByName(@RequestParam String name) {
+	public ResponseEntity<List<ProductDTO>> findProductByName(@RequestParam String name) {
 		try {
-			List<Product> productList = productService.findByName(name);
+			
+			List<ProductDTO> productList = productService.findByName(name).stream().map(product-> modelMapper.map(product, ProductDTO.class)).collect(Collectors.toList());
 
 			if (productList.isEmpty()) {
 				return new ResponseEntity<>(HttpStatus.NO_CONTENT);
@@ -120,9 +128,9 @@ public class ProductController {
 	}
 
 	@GetMapping("/products/manufacturer")
-	public ResponseEntity<List<Product>> findProductByManufacturer(@RequestParam String manufacturer) {
+	public ResponseEntity<List<ProductDTO>> findProductByManufacturer(@RequestParam String manufacturer) {
 		try {
-			List<Product> productList = productService.findByManufacturer(manufacturer);
+			List<ProductDTO> productList = productService.findByManufacturer(manufacturer).stream().map(product-> modelMapper.map(product, ProductDTO.class)).collect(Collectors.toList());
 
 			if (productList.isEmpty()) {
 				return new ResponseEntity<>(HttpStatus.NO_CONTENT);

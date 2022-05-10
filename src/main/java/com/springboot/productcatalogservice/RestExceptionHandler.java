@@ -23,6 +23,7 @@ import org.springframework.web.servlet.NoHandlerFoundException;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
 import com.springboot.productcatalogservice.exceptions.ApiExceptions;
+import com.springboot.productcatalogservice.exceptions.EntityNotFoundException;
 
 import lombok.extern.slf4j.Slf4j;
 import static org.springframework.http.HttpStatus.NOT_FOUND;

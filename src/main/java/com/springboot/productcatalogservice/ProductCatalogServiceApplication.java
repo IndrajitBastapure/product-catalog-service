@@ -1,6 +1,7 @@
 package com.springboot.productcatalogservice;
 
 import org.springframework.boot.SpringApplication;
+import org.modelmapper.ModelMapper;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
@@ -31,4 +32,8 @@ public class ProductCatalogServiceApplication{
 	         .apis(RequestHandlerSelectors.basePackage("com.springboot.productcatalogservice")).build();
 	   }
 
+	@Bean
+	public ModelMapper modelMapper() {
+		return new ModelMapper();
+	}
 }

@@ -1,4 +1,4 @@
-package com.springboot.productcatalogservice;
+package com.springboot.productcatalogservice.exceptions;
 
 import org.apache.commons.lang3.StringUtils;
 
