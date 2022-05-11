@@ -52,7 +52,14 @@ public class ProductController {
 
 	@GetMapping("/products/{id}")
 	public ResponseEntity<ProductDTO> getProductById(@PathVariable("id") long id) {
-		Product product = productService.findById(id);
+		Optional<Product> productFound = productService.findById(id);
+		Product product = null;
+		if(productFound.isPresent()) {
+		 product = productFound.get();
+		}else {
+		 product = productFound.orElse(new Product());
+		}
+		
 		ProductDTO productData = modelMapper.map(product, ProductDTO.class);
 
 		return new ResponseEntity<>(productData, HttpStatus.OK);
@@ -77,7 +84,13 @@ public class ProductController {
 	public ResponseEntity<ProductDTO> updateProduct(@PathVariable("id") long id, @RequestBody ProductDTO productDto) {
 
 		Product productRequest = modelMapper.map(productDto, Product.class);
-		Product productEntity = productService.findById(id);
+		Optional<Product> productFound = productService.findById(id);
+		Product productEntity = null;
+		if(productFound.isPresent()) {
+			productEntity = productFound.get();
+		}else {
+			productEntity = productFound.orElse(new Product());
+		}
 
 		productEntity.setName(productRequest.getName());
 		productEntity.setQuantity(productRequest.getQuantity());

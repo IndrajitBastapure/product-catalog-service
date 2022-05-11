@@ -8,7 +8,7 @@ import com.springboot.productcatalogservice.entity.Product;
 public interface ProductService {
 
 	List<Product> getAllProducts();
-	Product findById(long id);
+	Optional<Product> findById(long id);
 	Product saveProduct(Product product);
 	void deleteProductById(long id);
 	void deleteAllProducts();
