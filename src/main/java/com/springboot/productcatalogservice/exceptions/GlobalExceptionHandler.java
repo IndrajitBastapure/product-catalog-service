@@ -1,4 +1,4 @@
-package com.springboot.productcatalogservice;
+package com.springboot.productcatalogservice.exceptions;
 
 import static org.springframework.http.HttpStatus.BAD_REQUEST;
 
@@ -22,16 +22,13 @@ import org.springframework.web.method.annotation.MethodArgumentTypeMismatchExcep
 import org.springframework.web.servlet.NoHandlerFoundException;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
-import com.springboot.productcatalogservice.exceptions.ApiExceptions;
-import com.springboot.productcatalogservice.exceptions.EntityNotFoundException;
-
 import lombok.extern.slf4j.Slf4j;
 import static org.springframework.http.HttpStatus.NOT_FOUND;
 
 @Order(Ordered.HIGHEST_PRECEDENCE)
 @ControllerAdvice
 @Slf4j
-public class RestExceptionHandler extends ResponseEntityExceptionHandler {
+public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
 
 	@Override
 	protected ResponseEntity<Object> handleMissingServletRequestParameter(MissingServletRequestParameterException ex,
@@ -69,12 +66,13 @@ public class RestExceptionHandler extends ResponseEntityExceptionHandler {
 		return buildResponseEntity(apiExceptions);
 	}
 
-	 @ExceptionHandler(EntityNotFoundException.class) protected
-	  ResponseEntity<Object> handleEntityNotFound(EntityNotFoundException ex) {
-	  ApiExceptions apiExceptions = new ApiExceptions(NOT_FOUND);
-	  apiExceptions.setMessage(ex.getMessage()); return
-	  buildResponseEntity(apiExceptions); }
-	 
+	@ExceptionHandler(EntityNotFoundException.class)
+	protected ResponseEntity<Object> handleEntityNotFound(EntityNotFoundException ex) {
+		ApiExceptions apiExceptions = new ApiExceptions(NOT_FOUND);
+		apiExceptions.setMessage(ex.getMessage());
+		return buildResponseEntity(apiExceptions);
+	}
+
 	@Override
 	protected ResponseEntity<Object> handleHttpMessageNotReadable(HttpMessageNotReadableException ex,
 			HttpHeaders headers, HttpStatus status, WebRequest request) {
